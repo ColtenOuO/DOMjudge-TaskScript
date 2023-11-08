@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>測試資料上傳與輸入</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            width: 620px; /* 調整寬度以適應兩個矩形框 */
+        }
+
+        .box {
+            width: 300px;
+            height: 200px;
+            border: 2px solid #ccc;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            border-color: #007BFF;
+        }
+
+        .file-input {
+            display: block;
+            margin: 20px auto;
+        }
+
+        .number-input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px auto;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="box"  for="testdata">
+                <h2>上傳測試資料 (ZIP檔案)</h2>
+                <input type="file" name="testdata" class="file-input" accept=".zip">
+            </div>
+            <div class="box"  for="description">
+                <h2>上傳題本 (PDF)</h2>
+                <input type="file" name="description" class="file-input" accept=".pdf">
+            </div>
+        </div>
+        <div class="row">
+            <div class="box"  for="timeLimit">
+                <h2>題目時間限制</h2>
+                <input type="number" name="timeLimit" class="number-input">
+            </div>
+            <div class="box"  for="memoryLimit">
+                <h2>題目記憶體限制</h2>
+                <input type="number" name="memoryLimit" class="number-input">
+            </div>
+        </div>
+        <button type="submit">總提交</button>
+    </form>
+    </div>
+</body>
+</html>
